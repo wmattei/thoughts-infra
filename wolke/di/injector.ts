@@ -1,7 +1,6 @@
 
 const Injector = {
     register: function (name: string, obj: {}) {
-        console.log('registered');
         const t = {} as any;
         t[name] = obj;
         Object.assign(this, t);
