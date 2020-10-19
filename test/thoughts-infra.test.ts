@@ -1,6 +1,6 @@
 import { expect as expectCDK, matchTemplate, MatchStyle } from '@aws-cdk/assert';
 import * as cdk from '@aws-cdk/core';
-import * as ThoughtsInfra from '../lib/thoughts-infra-stack';
+import * as ThoughtsInfra from '../lib/infra/thoughts-infra-stack';
 
 test('Empty Stack', () => {
     const app = new cdk.App();
