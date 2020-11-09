@@ -1,0 +1,25 @@
+type PreSignRequest {
+    key: String
+    fileName: String
+}
+
+type Thought @aws_cognito_user_pools {
+    ID: String
+    content: String!
+    author: String
+    attachments: [String]
+}
+
+type Query {
+    thoughts: [Thought]
+    # preSignUrls(request: [PreSignRequest]): [String]
+}
+
+type Mutation {
+    addThought(content: String!): Thought
+}
+
+type Subscription {
+    thoughtAdded: Thought
+    @aws_subscribe(mutations: ["addThought"])
+}

@@ -1,23 +1,4 @@
-registered
-registered
 Resources:
-  Users0A0EEA89:
-    Type: AWS::DynamoDB::Table
-    Properties:
-      KeySchema:
-        - AttributeName: ID
-          KeyType: HASH
-      AttributeDefinitions:
-        - AttributeName: ID
-          AttributeType: S
-      ProvisionedThroughput:
-        ReadCapacityUnits: 5
-        WriteCapacityUnits: 5
-      TableName: THOUGHTS_users_LOCAL
-    UpdateReplacePolicy: Delete
-    DeletionPolicy: Delete
-    Metadata:
-      aws:cdk:path: ThoughtsInfraStack/Users/Resource
   Thoughts939DEFD5:
     Type: AWS::DynamoDB::Table
     Properties:
@@ -35,10 +16,18 @@ Resources:
     DeletionPolicy: Delete
     Metadata:
       aws:cdk:path: ThoughtsInfraStack/Thoughts/Resource
+  DeploymentBucketC91A09DA:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: thoughts-lambdas-local
+    UpdateReplacePolicy: Delete
+    DeletionPolicy: Delete
+    Metadata:
+      aws:cdk:path: ThoughtsInfraStack/DeploymentBucket/Resource
   CDKMetadata:
     Type: AWS::CDK::Metadata
     Properties:
-      Modules: aws-cdk=1.67.0,@aws-cdk/assets=1.68.0,@aws-cdk/aws-applicationautoscaling=1.68.0,@aws-cdk/aws-autoscaling-common=1.68.0,@aws-cdk/aws-cloudwatch=1.68.0,@aws-cdk/aws-codeguruprofiler=1.68.0,@aws-cdk/aws-dynamodb=1.68.0,@aws-cdk/aws-ec2=1.68.0,@aws-cdk/aws-events=1.68.0,@aws-cdk/aws-iam=1.68.0,@aws-cdk/aws-kms=1.68.0,@aws-cdk/aws-lambda=1.68.0,@aws-cdk/aws-logs=1.68.0,@aws-cdk/aws-s3=1.68.0,@aws-cdk/aws-s3-assets=1.68.0,@aws-cdk/aws-sqs=1.68.0,@aws-cdk/aws-ssm=1.68.0,@aws-cdk/cloud-assembly-schema=1.68.0,@aws-cdk/core=1.68.0,@aws-cdk/custom-resources=1.68.0,@aws-cdk/cx-api=1.68.0,@aws-cdk/region-info=1.68.0,jsii-runtime=node.js/v10.17.0
+      Modules: aws-cdk=1.70.0,@aws-cdk/assets=1.64.1,@aws-cdk/aws-apigateway=1.64.1,@aws-cdk/aws-applicationautoscaling=1.64.1,@aws-cdk/aws-autoscaling-common=1.64.1,@aws-cdk/aws-cloudwatch=1.64.1,@aws-cdk/aws-codeguruprofiler=1.64.1,@aws-cdk/aws-dynamodb=1.64.1,@aws-cdk/aws-ec2=1.64.1,@aws-cdk/aws-events=1.64.1,@aws-cdk/aws-iam=1.64.1,@aws-cdk/aws-kms=1.64.1,@aws-cdk/aws-lambda=1.64.1,@aws-cdk/aws-logs=1.64.1,@aws-cdk/aws-s3=1.64.1,@aws-cdk/aws-s3-assets=1.64.1,@aws-cdk/aws-sqs=1.64.1,@aws-cdk/aws-ssm=1.64.1,@aws-cdk/cloud-assembly-schema=1.64.1,@aws-cdk/core=1.64.1,@aws-cdk/custom-resources=1.64.1,@aws-cdk/cx-api=1.64.1,@aws-cdk/region-info=1.64.1,jsii-runtime=node.js/v10.17.0
     Condition: CDKMetadataAvailable
 Conditions:
   CDKMetadataAvailable:

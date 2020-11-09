@@ -1,7 +1,12 @@
 import * as cdk from '@aws-cdk/core';
-import Context from '../../wolke/di/decorators/context.decorator';
 import Provider from '../../wolke/di/decorators/provider.decorator';
 import { DynamoTables } from '../app/database/dynamoTables';
+import { GraphqlDataSources } from '../app/graphql/datasources';
+import { GraphqlResolvers } from '../app/graphql/resolvers';
+import { Cognito } from './cognito';
+import { Graphql } from './graphql';
+import { Lambda } from './lambda';
+import { TypescriptRuntime } from './typescript-runtime';
 
 export class ThoughtsInfraStack extends cdk.Stack {
     @Provider()
@@ -9,12 +14,17 @@ export class ThoughtsInfraStack extends cdk.Stack {
 
     constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
-
-        // Assign your current instance to the variable that is annotated with the @Provider, 
-        // to provide its value to all the properties annotated with @Context
         this.scope = this;
 
-        // You don't have to pass props to your classes because they can inject it through the DI
+        // Creates a typescript runtime that allows us to run deno code on lambda
+        new TypescriptRuntime();
+        new Lambda();
+
+        new Cognito();
+
         new DynamoTables();
+        new Graphql();
+        new GraphqlDataSources();
+        new GraphqlResolvers();
     }
 }

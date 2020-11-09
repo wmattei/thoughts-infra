@@ -1,31 +1,37 @@
 {
-  "name": "thoughts-infra",
-  "version": "0.1.0",
-  "bin": {
-    "thoughts-infra": "bin/thoughts-infra.js"
-  },
-  "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "test": "jest",
-    "cdk": "cdk"
-  },
-  "devDependencies": {
-    "@aws-cdk/assert": "1.61.1",
-    "@types/jest": "^26.0.10",
-    "@types/node": "10.17.27",
-    "aws-cdk": "1.61.1",
-    "jest": "^26.4.2",
-    "ts-jest": "^26.2.0",
-    "ts-node": "^9.0.0",
-    "typescript": "~3.9.7"
-  },
-  "dependencies": {
-    "@aws-cdk/aws-apigateway": "^1.68.0",
-    "@aws-cdk/aws-dynamodb": "^1.68.0",
-    "@aws-cdk/core": "1.61.1",
-    "dotenv": "^8.2.0",
-    "reflect-metadata": "^0.1.13",
-    "source-map-support": "^0.5.16"
-  }
+    "name": "thoughts-infra",
+    "version": "0.1.0",
+    "bin": {
+        "thoughts-infra": "bin/thoughts-infra.js"
+    },
+    "scripts": {
+        "start": "tsc-watch --onSuccess \"node ./server.js\"",
+        "build": "tsc",
+        "test": "jest",
+        "cdk": "cdk"
+    },
+    "devDependencies": {
+        "@aws-cdk/assert": "1.72.0",
+        "@aws-cdk/aws-lambda": "1.72.0",
+        "@aws-cdk/aws-s3": "1.72.0",
+        "@types/aws-lambda": "^8.10.64",
+        "@types/jest": "^26.0.10",
+        "@types/node": "14.14.6",
+        "aws-cdk": "1.72.0",
+        "jest": "^26.4.2",
+        "ts-jest": "^26.2.0",
+        "ts-node": "^9.0.0",
+        "tsc-watch": "^4.2.9",
+        "typescript": "~3.9.7"
+    },
+    "dependencies": {
+        "@aws-cdk/aws-apigateway": "1.72.0",
+        "@aws-cdk/aws-appsync": "^1.72.0",
+        "@aws-cdk/aws-cognito": "^1.72.0",
+        "@aws-cdk/aws-dynamodb": "1.72.0",
+        "@aws-cdk/core": "1.72.0",
+        "dotenv": "^8.2.0",
+        "reflect-metadata": "^0.1.13",
+        "source-map-support": "^0.5.16"
+    }
 }
